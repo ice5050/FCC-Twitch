@@ -1,0 +1,14 @@
+html,
+button,
+input,
+select,
+textarea,
+.pure-g [class *= 'pure-u'] {
+  font-family: 'Oswald', sans-serif;
+}
+
+body {
+  font-weight: 300;
+  box-sizing: border-box;
+  color: #FFFFFF;
+}
