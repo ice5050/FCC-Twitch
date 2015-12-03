@@ -1,13 +1,19 @@
-var TwitchService = function() {
-  var TWITCH_API_URL = "https://api.twitch.tv/kraken/streams/";
+var TwitchService = (function() {
+  var TWITCH_STREAMS_API_URL = "https://api.twitch.tv/kraken/streams/";
+  var TWITCH_CHANNELS_API_URL = "https://api.twitch.tv/kraken/channels/";
 
   return {
-    getInformation: getInformation
+    getStream: getStream,
+    getChannel: getChannel
   };
 
-  function getInformation(channel, callback) {
-    var script = document.createElement('script');
-    script.src = TWITCH_API_URL + channel + "?callback=" + callback.name;
-    document.getElementsByTagName('body')[0].appendChild(script);
+  function getStream(channel, successCallback, errorCallback) {
+    var url = TWITCH_STREAMS_API_URL + channel + "?callback=?";
+    $.getJSON(url).done(successCallback).fail(errorCallback);
   }
-}
+
+  function getChannel(channel, successCallback, errorCallback) {
+    var url = TWITCH_CHANNELS_API_URL + channel + "?callback=?";
+    $.getJSON(url).done(successCallback).fail(errorCallback);
+  }
+})();
