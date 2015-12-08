@@ -1,5 +1,6 @@
 $(document).ready(function() {
   updateTwitchAccounts();
+  setInterval(updateTwitchAccounts, 60000);
 
   $("#search-box").on("input", function(e) {
     var text = $(e.currentTarget).val();
