@@ -7,13 +7,13 @@ var TwitchService = (function() {
     getChannel: getChannel
   };
 
-  function getStream(channel) {
-    var url = TWITCH_STREAMS_API_URL + channel + "?callback=?";
+  function getStream(account) {
+    var url = TWITCH_STREAMS_API_URL + account + "?callback=?";
     return $.getJSON(url);
   }
 
-  function getChannel(channel) {
-    var url = TWITCH_CHANNELS_API_URL + channel + "?callback=?";
+  function getChannel(account) {
+    var url = TWITCH_CHANNELS_API_URL + account + "?callback=?";
     return $.getJSON(url);
   }
 })();
