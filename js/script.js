@@ -43,9 +43,11 @@ function updateTwitchAccount(account) {
       .attr("href", url);
   });
   TwitchService.getStream(account).done(function(data) {
-    var isStreaming = !!data.stream;
+    var isStreaming = !!data.stream, game;
     $accountLink.removeClass("online offline deleted");
     if (isStreaming) {
+      game = data.stream.game;
+      $accountLink.text($accountLink.text() + " : " + game);
       $accountLink.addClass("online");
     }else {
       $accountLink.addClass("offline");
